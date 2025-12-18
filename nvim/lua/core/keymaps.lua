@@ -13,6 +13,7 @@ vim.keymap.set("n", "<leader>fr", function() require("telescope.builtin").oldfil
 
 -- terminal
 vim.keymap.set("n", "<leader>t", ":split | terminal<CR>")
+vim.keymap.set("n", "<leader>T", ":vsplit | terminal<CR>")
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 
 -- window move
