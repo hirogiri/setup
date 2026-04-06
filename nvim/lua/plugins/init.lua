@@ -28,4 +28,27 @@ require("lazy").setup({
 
   { "lewis6991/gitsigns.nvim", config = function() require("plugins.gitsigns") end },
   { "tpope/vim-fugitive" },
+  { 
+    "akinsho/toggleterm.nvim", 
+    version = "*", 
+    config = function()
+      require("toggleterm").setup({
+        size = function(term)
+          if term.direction == "horizontal" then
+            return 15
+          elseif term.direction == "vertical" then
+            return vim.o.columns * 0.4
+          end
+        end,
+        open_mapping = [[<C-\>]],
+        shade_terminals = true,
+        shading_factor = 2,
+        direction = 'float', -- デフォルトをfloatに
+        float_opts = {
+          border = 'curved',
+          winblend = 10, -- 10%透明にする（背後が透ける）
+        }
+      })
+    end 
+  },
 })

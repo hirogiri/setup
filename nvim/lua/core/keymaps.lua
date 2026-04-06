@@ -11,10 +11,29 @@ vim.keymap.set("n", "<leader>fg", function() require("telescope.builtin").live_g
 vim.keymap.set("n", "<leader>fb", function() require("telescope.builtin").buffers() end)
 vim.keymap.set("n", "<leader>fr", function() require("telescope.builtin").oldfiles() end)
 
--- terminal
-vim.keymap.set("n", "<leader>t", ":split | terminal<CR>")
-vim.keymap.set("n", "<leader>T", ":vsplit | terminal<CR>")
+-- terminal (layout-focused)
+-- 下側に分割してターミナルを起動 (Ctrl + t)
+vim.keymap.set("n", "<C-t>", function()
+  vim.cmd("belowright split | terminal")
+end)
+
+-- 右側に分割してターミナルを起動 (Ctrl + Shift + T)
+-- 注: Ghostty側で Ctrl+Shift+T が使われていないか確認が必要です
+vim.keymap.set("n", "<C-S-t>", function()
+  vim.cmd("vertical rightbelow split | terminal")
+end)
+
+-- ターミナル内でも同じ操作で分割を増やせるように (tモード)
+vim.keymap.set("t", "<C-t>", [[<C-\><C-n>:belowright split | terminal<CR>]])
+vim.keymap.set("t", "<C-S-t>", [[<C-\><C-n>:vertical rightbelow split | terminal<CR>]])
+
+-- ターミナルモードからノーマルモードに戻る
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
+-- ウィンドウ移動 (ターミナル内からそのまま別のウィンドウへ)
+vim.keymap.set("t", "<C-h>", [[<C-\><C-n><C-w>h]])
+vim.keymap.set("t", "<C-j>", [[<C-\><C-n><C-w>j]])
+vim.keymap.set("t", "<C-k>", [[<C-\><C-n><C-w>k]])
+vim.keymap.set("t", "<C-l>", [[<C-\><C-n><C-w>l]])
 
 -- window move
 vim.keymap.set("n", "<C-h>", "<C-w>h")
