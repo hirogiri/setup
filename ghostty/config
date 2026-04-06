@@ -1,0 +1,29 @@
+# --- 見た目の設定 ---
+background-opacity = 0.7
+background-blur = 20
+
+font-family = "JetBrainsMono Nerd Font"
+font-size = 12
+font-thicken = true
+
+cursor-style = block
+cursor-style-blink = true
+
+# タイトルバーの設定（干渉を避けるため一度標準に戻します）
+# macos-titlebar-style = hidden
+
+# テーマの読み込み
+theme = "Catppuccin Macchiato"
+
+# --- クイックターミナルの設定 ---
+# Option + T で切り替え
+keybind = global:opt+t=toggle_quick_terminal
+
+# クイックターミナルの基本設定
+quick-terminal-position = right
+quick-terminal-size = 40%
+quick-terminal-autohide = true
+quick-terminal-screen = main
+
+# アニメーションを少し持たせてトグル動作を明確にする
+quick-terminal-animation-duration = 0.2
